@@ -33,7 +33,6 @@ module.exports = function(options) {
       requests.inc(reqLabels, 1, new Date());
       end(reqLabels);
     };
-
     next()
   }
 }
