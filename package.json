@@ -1,0 +1,24 @@
+{
+  "name": "nocms-express-metrics",
+  "version": "0.0.1",
+  "description": "Provide Prometheus metrics from Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miles-no/nocms-express-metrics.git"
+  },
+  "keywords": [
+    "nocms",
+    "express",
+    "prometheus"
+  ],
+  "author": "Jon Arild Torresdal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miles-no/nocms-express-metrics/issues"
+  },
+  "homepage": "https://github.com/miles-no/nocms-express-metrics#readme"
+}
