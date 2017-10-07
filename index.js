@@ -23,6 +23,7 @@ module.exports = function(options) {
 
   return function(req, res, next) {
     const end = requestDuration.startTimer();
+    let oldEnd = res.end;
 
     res.end = function () {
       const reqLabels = {
@@ -32,6 +33,7 @@ module.exports = function(options) {
 
       requests.inc(reqLabels, 1, new Date());
       end(reqLabels);
+      oldEnd.apply(res, arguments);
     };
     next()
   }
