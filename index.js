@@ -25,7 +25,7 @@ module.exports = (options) => {
     const end = requestDuration.startTimer();
     let oldEnd = res.end;
 
-    res.end = function (chunk, encoding) {
+    res.end = function () {
       const reqLabels = {
         method: req.method,
         status: res.statusCode ? res.statusCode.toString() : ''
@@ -33,7 +33,7 @@ module.exports = (options) => {
 
       requests.inc(reqLabels, 1, new Date());
       end(reqLabels);
-      oldEnd.apply(chunk, encoding);
+      oldEnd.apply(res, arguments);
     };
     next()
   }
