@@ -1,7 +1,7 @@
 'use strict';
 const gcStats = require('prometheus-gc-stats');
 
-module.exports = function(options) {
+module.exports = (options) => {
   const prometheus = options.prometheus || require('prom-client');
 
   if(options.noDefaultMetrics)  prometheus.collectDefaultMetrics();
@@ -25,15 +25,15 @@ module.exports = function(options) {
     const end = requestDuration.startTimer();
     let oldEnd = res.end;
 
-    res.end = function () {
+    res.end = function (chunk, encoding) {
       const reqLabels = {
         method: req.method,
-        status: res.status
+        status: res.statusCode ? res.statusCode.toString() : ''
       };
 
       requests.inc(reqLabels, 1, new Date());
       end(reqLabels);
-      oldEnd.apply(res, arguments);
+      oldEnd.apply(chunk, encoding);
     };
     next()
   }
