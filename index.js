@@ -4,8 +4,8 @@ const gcStats = require('prometheus-gc-stats');
 module.exports = (options) => {
   const prometheus = options.prometheus || require('prom-client');
 
-  if(!options.noDefaultMetrics)  prometheus.collectDefaultMetrics();
-  if(!options.noGcStats)         gcStats(prometheus.registry);
+  if(options.enableNodeMetrics)  prometheus.collectDefaultMetrics();
+  if(options.enableGCMetrics)    gcStats(prometheus.registry);
 
   const reqLabelNames = ['method', 'status'];
 
