@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/miles-no/nocms-express-metrics/issues"
   },
-  "homepage": "https://github.com/miles-no/nocms-express-metrics#readme"
+  "homepage": "https://github.com/miles-no/nocms-express-metrics#readme",
+  "dependencies": {
+    "prom-client": "^10.1.1",
+    "prometheus-gc-stats": "^0.5.0"
+  }
 }
