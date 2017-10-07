@@ -1,11 +1,11 @@
 'use strict';
-
-const prometheus = require('prom-client');
 const gcStats = require('prometheus-gc-stats');
 
 module.exports = function(options) {
-  prometheus.collectDefaultMetrics();
-  gcStats(prometheus.registry);
+  const prometheus = options.prometheus || require('prom-client');
+
+  if(options.noDefaultMetrics)  prometheus.collectDefaultMetrics();
+  if(options.noGcStats)         gcStats(prometheus.registry);
 
   const reqLabelNames = ['method', 'status'];
 
