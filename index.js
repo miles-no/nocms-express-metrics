@@ -33,7 +33,7 @@ module.exports = (options) => {
         status: res.statusCode ? res.statusCode.toString() : ''
       };
 
-      requests.inc(reqLabels, 1, new Date());
+      requests.inc(reqLabels, 1);
       end(reqLabels);
       oldEnd.apply(res, arguments);
     };
