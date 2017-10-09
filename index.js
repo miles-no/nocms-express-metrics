@@ -22,7 +22,7 @@ module.exports = (options) => {
   });
 
   return function(req, res, next) {
-    if(req.path === '/metrics') return next();
+    if(req.path === '/metrics' || req.path === '/health') return next();
 
     const end = requestDuration.startTimer();
     let oldEnd = res.end;
