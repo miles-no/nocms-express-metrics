@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:10.3.0
 
     working_directory: ~/repo
 
@@ -16,9 +16,8 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
-      - run: npm run semantic-release || true
-
+      - run: npm ci
+      - run: npx semantic-release
       - save_cache:
           paths:
             - node_modules

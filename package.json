@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "nsp": "nsp check"
   },
   "repository": {
     "type": "git",
@@ -23,15 +24,11 @@
   },
   "homepage": "https://github.com/miles-no/nocms-express-metrics#readme",
   "dependencies": {
-    "prom-client": "^10.1.1",
-    "prometheus-gc-stats": "^0.5.0"
+    "prom-client": "^10.2.3",
+    "prometheus-gc-stats": "^0.5.1"
   },
   "devDependencies": {
-    "condition-circle": "^1.5.0",
-    "semantic-release": "^6.3.6"
-  },
-  "release": {
-    "verifyConditions": "condition-circle",
-    "debug": false
+    "nsp": "^3.2.1",
+    "semantic-release": "^15.5.1"
   }
 }
