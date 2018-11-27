@@ -6,6 +6,10 @@ module.exports = (options) => {
 
   if(options.enableNodeMetrics)  prometheus.collectDefaultMetrics();
   if(options.enableGCMetrics)    gcStats(prometheus.registry);
+  if(options.enableGCMetrics) {
+    const startGc = gcStats(prometheus.registry);
+    startGc();
+  }
 
   const reqLabelNames = ['method', 'status'];
 
